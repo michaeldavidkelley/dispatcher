@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
+use App\Event;
+use Illuminate\Validation\Rule;
 
 class EventsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Service $service)
     {
         $events = $service->events;
@@ -19,26 +16,26 @@ class EventsController extends Controller
         return view('events.index', compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($service)
+    public function create(Service $service)
     {
-        return view('events.create', compact('serviceId'));
+        return view('events.create', compact('service'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request, Service $service)
     {
-        //
+        $this->validate($request, [
+            'name' => [
+                'required',
+                Rule::unique('events')->where(function ($query) use ($service) {
+                    return $query->where('service_id', $service->id);
+                }),
+            ],
+            'descipription' => '',
+        ]);
+
+        $event = $service->events()->create($request->only('name', 'description'));
+
+        return redirect()->route('events.show', [$service->id, $event->id]);
     }
 
     /**
@@ -48,7 +45,7 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service, Event $event)
     {
         //
     }

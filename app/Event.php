@@ -11,6 +11,12 @@ class Event extends Model
 
     protected $table = 'events';
 
+    protected $fillable = ['name', 'description'];
+
+    protected $attributes = [
+        'enabled' => true,
+    ];
+
     public function service()
     {
         return $this->belongsTo(Service::class);

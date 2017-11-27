@@ -17,7 +17,7 @@ class Service extends Model
         'enabled' => true,
     ];
 
-    protected function events()
+    public function events()
     {
         return $this->hasMany(Event::class);
     }

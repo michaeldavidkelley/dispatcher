@@ -20,7 +20,7 @@
     @endslot
     <div class="list-group">
         @foreach($service->events as $event)
-        <a href="{{ routes('events.show', [$service->id, $event->id]) }}" class="list-group-item">
+        <a href="{{ route('events.show', [$service->id, $event->id]) }}" class="list-group-item">
             #{{ $event->id }} - {{ $event->name }}
         </a>
         @endforeach
