@@ -4,21 +4,23 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateListenersTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('listeners', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('event_id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->boolean('is_admin')->default(false);
-            $table->rememberToken();
+            $table->text('description');
+            $table->boolean('enabled');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->unique(['event_id', 'name']);
         });
     }
 }
