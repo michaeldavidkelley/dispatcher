@@ -8,8 +8,8 @@
 				<div class="panel-heading">Dashboard</div>
 				<div class="panel-body">
 					<div class="btn-group">
-						<a href="" class="btn btn-default">Services</a>
-						<a href="" class="btn btn-default">
+						<a href="{{ route('services.index') }}" class="btn btn-default">Services</a>
+						<a href="{{ route('services.create') }}" class="btn btn-default">
 							<i class="fa fa-plus"></i>
 						</a>
 					</div>
