@@ -72,7 +72,16 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    @yield('content')
+                </div>
+                <div class="col-sm-2">
+                    @yield('sidenav')
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->

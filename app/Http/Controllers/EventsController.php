@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Service;
 
 class EventsController extends Controller
 {
@@ -11,9 +12,11 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Service $service)
     {
-        //
+        $events = $service->events;
+
+        return view('events.index', compact('events'));
     }
 
     /**
@@ -21,9 +24,9 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($service)
     {
-        //
+        return view('events.create', compact('serviceId'));
     }
 
     /**

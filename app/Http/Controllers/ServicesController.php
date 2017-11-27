@@ -55,9 +55,9 @@ class ServicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
-        //
+        return view('services.show', compact('service'));
     }
 
     /**

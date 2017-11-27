@@ -14,12 +14,6 @@
 						</a>
 					</div>
 					<div class="btn-group">
-						<a href="" class="btn btn-default">Events</a>
-						<a href="" class="btn btn-default">
-							<i class="fa fa-plus"></i>
-						</a>
-					</div>
-					<div class="btn-group">
 						<a href="" class="btn btn-default">Listeners</a>
 						<a href="" class="btn btn-default">
 							<i class="fa fa-plus"></i>

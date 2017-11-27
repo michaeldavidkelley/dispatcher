@@ -20,13 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('services', ServicesController::class);
-Route::resource('events', EventsController::class, ['except' => ['store', 'index', 'create']]);
-Route::resource('listeners', ListenersController::class, ['except' => ['store', 'index', 'create']]);
+// Route::resource('events', EventsController::class, ['except' => ['store', 'index', 'create']]);
+// Route::resource('listeners', ListenersController::class, ['except' => ['store', 'index', 'create']]);
 
-Route::group(['prefix' => 'services/{serviceId}'], function () {
+Route::group(['prefix' => 'services/{service}'], function () {
     Route::resource('events', EventsController::class);
 
-    Route::group(['prefix' => 'events/{eventId}'], function () {
+    Route::group(['prefix' => 'events/{event}'], function () {
         Route::resource('listeners', ListenersController::class);
     });
 });
