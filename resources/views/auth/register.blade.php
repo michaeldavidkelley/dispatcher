@@ -61,6 +61,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('registration_code') ? ' has-error' : '' }}">
+                            <label for="registration-code" class="col-md-4 control-label">Registration Code</label>
+
+                            <div class="col-md-6">
+                                <input id="registration-code" type="text" class="form-control" name="registration_code" value="{{ old('registration_code') }}" required>
+
+                                @if ($errors->has('registration_code'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('registration_code') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
