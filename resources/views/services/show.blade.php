@@ -27,7 +27,8 @@
     <div class="list-group">
         @forelse($service->events as $event)
         <a href="{{ route('events.show', [$service->id, $event->id]) }}" class="list-group-item">
-            #{{ $event->id }} - {{ $event->name }}
+            #{{ $event->id }} - {{ $event->name }} 
+            <i class="pull-right fa fa-{{ $event->enabled ? 'check text-success' : 'close text-danger' }}"></i>
         </a>
         @empty
         <div class="list-group-item">No Events Found</div>

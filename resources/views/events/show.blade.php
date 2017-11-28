@@ -13,17 +13,22 @@
 
 @section('content')
 <div class="alert alert-info">For Service #{{ $service->id }} - {{ $service->name }}</div>
+@if(!$event->enabled)
+<div class="alert alert-danger">This Event is DISABLED</div>
+@endif
 @component('components.card')
     @slot('title')
         Event #{{ $event->id }} - {{ $event->name }}
+        <span class="pull-right"><small>{{ $event->enabled ? 'enabled' : 'disabled' }}</small></span>
+ 
     @endslot
 
     @slot('footer')
         <p>Listener Defaults:</p>
         <ul>
-            <li>First Delay: {{ $event->listeners_first_delay }}</li>
-            <li>Max Retries: {{ $event->listeners_max_retries }}</li>
-            <li>Retry Delay: {{ $event->listeners_retry_delay }}</li>
+            <li>First Delay: <strong>{{ $event->listeners_first_delay }}</strong> seconds</li>
+            <li>Max Retries: <strong>{{ $event->listeners_max_retries }}</strong> times</li>
+            <li>Retry Delay: <strong>{{ $event->listeners_retry_delay }}</strong> seconds</li>
             <li>Can Override: {{ $event->listeners_can_override ? 'Yes' : 'No' }}</li>
             <li>Require Confirm: {{ $event->listeners_require_confirmation ? 'Yes' : 'No' }}</li>
             @if($event->listeners_require_confirmation)
