@@ -17,6 +17,12 @@
     @slot('title')
         Service #{{ $service->id }} - {{ $service->name }}
     @endslot
+
+    @if($service->description)
+    <p>{{ $service->description }}</p>
+    <hr>
+    @endif
+
     <h4>Events</h4>
     <div class="list-group">
         @forelse($service->events as $event)

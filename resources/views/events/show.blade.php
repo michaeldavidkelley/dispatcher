@@ -18,6 +18,11 @@
         Event #{{ $event->id }} - {{ $event->name }}
     @endslot
 
+    @if($event->description)
+    <p>{{ $event->description }}</p>
+    <hr>
+    @endif
+
     <h4>Listeners</h4>
     <div class="list-group">
         @forelse($event->listeners as $listener)
@@ -29,6 +34,8 @@
         @endforelse
     </div>
 
+    <hr>
+    
     <h4>Webhook</h4>
     <div>{{ route('events.trigger', $event->id) }}</div>
 @endcomponent

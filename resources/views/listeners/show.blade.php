@@ -21,6 +21,11 @@
     @slot('title')
         Listener #{{ $listener->id }} - {{ $listener->name }}
     @endslot
+    
+    @if($listener->description)
+    <p>{{ $listener->description }}</p>
+    <hr>
+    @endif
 @endcomponent
 
 @endsection
