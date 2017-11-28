@@ -19,11 +19,13 @@
     @endslot
     <h4>Events</h4>
     <div class="list-group">
-        @foreach($service->events as $event)
+        @forelse($service->events as $event)
         <a href="{{ route('events.show', [$service->id, $event->id]) }}" class="list-group-item">
             #{{ $event->id }} - {{ $event->name }}
         </a>
-        @endforeach
+        @empty
+        <div class="list-group-item">No Events Found</div>
+        @endforelse
     </div>
 
 @endcomponent

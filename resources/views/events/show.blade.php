@@ -20,11 +20,13 @@
 
     <h4>Listeners</h4>
     <div class="list-group">
-        @foreach($event->listeners as $listener)
+        @forelse($event->listeners as $listener)
         <a href="{{ route('listeners.show', [$service->id, $event->id, $listener->id]) }}" class="list-group-item">
             Listener #{{ $listener->id }} - {{ $listener->name }}
         </a>
-        @endforeach
+        @empty
+        <div class="list-group-item">No Listeners Found</div>
+        @endforelse
     </div>
 
     <h4>Webhook</h4>
