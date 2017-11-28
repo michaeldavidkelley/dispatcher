@@ -21,11 +21,14 @@
     @slot('title')
         Listener #{{ $listener->id }} - {{ $listener->name }}
     @endslot
-    
+
     @if($listener->description)
     <p>{{ $listener->description }}</p>
     <hr>
     @endif
+
+    <h4>Webhook</h4>
+    <code>{{ $listener->webhook ?? 'N/A'}}</code>
 @endcomponent
 
 @endsection

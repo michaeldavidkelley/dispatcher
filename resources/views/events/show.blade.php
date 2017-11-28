@@ -35,9 +35,9 @@
     </div>
 
     <hr>
-    
+
     <h4>Webhook</h4>
-    <div>{{ route('events.trigger', $event->id) }}</div>
+    <div><code>{{ route('events.trigger', $event->id) }}</code></div>
 @endcomponent
 
 @endsection

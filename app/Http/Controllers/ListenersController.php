@@ -25,9 +25,10 @@ class ListenersController extends Controller
                 }),
             ],
             'descipription' => '',
+            'webhook' => 'url',
         ]);
 
-        $listener = $event->listeners()->create($request->only('name', 'description'));
+        $listener = $event->listeners()->create($request->only('name', 'description', 'webhook'));
 
         return redirect()->route('listeners.show', [$service->id, $event->id, $listener->id]);
     }

@@ -11,7 +11,7 @@ class Listener extends Model
 
     protected $table = 'listeners';
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'webhook'];
 
     protected $attributes = [
         'enabled' => true,

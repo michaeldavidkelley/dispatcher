@@ -34,3 +34,5 @@ Route::group(['prefix' => 'hooks/events/{event}'], function () {
         echo 'here';
     })->name('events.trigger');
 });
+
+Route::view('todo', 'todo');
