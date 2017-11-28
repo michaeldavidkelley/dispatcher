@@ -18,6 +18,17 @@
         Event #{{ $event->id }} - {{ $event->name }}
     @endslot
 
+    @slot('footer')
+        <p>Listener Defaults:</p>
+        <ul>
+            <li>First Delay: {{ $event->listeners_first_delay }}</li>
+            <li>Max Retries: {{ $event->listeners_max_retries }}</li>
+            <li>Retry Delay: {{ $event->listeners_retry_delay }}</li>
+            <li>Can Override: {{ $event->listeners_can_override ? 'Yes' : 'No' }}</li>
+            <li>Require Confirm: {{ $event->listeners_require_confirmation ? 'Yes' : 'No' }}</li>
+        </ul>
+    @endslot
+
     @if($event->description)
     <p>{{ $event->description }}</p>
     <hr>

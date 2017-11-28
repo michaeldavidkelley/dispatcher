@@ -16,7 +16,7 @@ class EventsController extends Controller
 
     public function store(Request $request, Service $service)
     {
-        $this->validate($request, [
+        $data = $this->validate($request, [
             'name' => [
                 'required',
                 Rule::unique('events')->where(function ($query) use ($service) {
@@ -24,9 +24,14 @@ class EventsController extends Controller
                 }),
             ],
             'descipription' => '',
+            'listeners_can_override' => 'boolean',
+            'listeners_require_confirmation' => 'boolean',
+            'listeners_max_retries' => 'required|integer|min:0',
+            'listeners_first_delay' => 'required|integer|min:0',
+            'listeners_retry_delay' => 'required|integer|min:10',
         ]);
 
-        $event = $service->events()->create($request->only('name', 'description'));
+        $event = $service->events()->create($data);
 
         return redirect()->route('events.show', [$service->id, $event->id]);
     }

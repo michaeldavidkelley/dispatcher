@@ -11,7 +11,7 @@ class Event extends Model
 
     protected $table = 'events';
 
-    protected $fillable = ['name', 'description'];
+    protected $guarded = [];
 
     protected $attributes = [
         'enabled' => true,

@@ -46,7 +46,7 @@ Route::group(['prefix' => 'hooks/events/{event}'], function () {
 Route::view('todo', 'todo');
 
 Route::post('test/listener/hook/A', function () {
-    file_put_contents('/Users/michaelkelley/Sites/listener.log', PHP_EOL . 'hit-A' . time(), FILE_APPEND);
+    file_put_contents('/Users/michaelkelley/Sites/listener.log', PHP_EOL . 'hit-A-' . time(), FILE_APPEND);
 });
 Route::post('test/listener/hook/B', function () {
     file_put_contents('/Users/michaelkelley/Sites/listener.log', PHP_EOL . 'hit-B-' . time(), FILE_APPEND);
