@@ -1,5 +1,8 @@
 <?php
 
+use GuzzleHttp\Client;
+use App\Event;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +33,21 @@ Route::group(['prefix' => 'services/{service}'], function () {
 });
 
 Route::group(['prefix' => 'hooks/events/{event}'], function () {
-    Route::post('trigger', function () {
-        echo 'here';
+    Route::post('trigger', function ($event) {
+        $event = Event::find($event);
+        $client = new Client(['timeout' => 1]);
+
+        foreach ($event->listeners()->whereNotNull('webhook')->get() as $listener) {
+            $client->request('post', $listener->webhook);
+        }
     })->name('events.trigger');
 });
 
 Route::view('todo', 'todo');
+
+Route::post('test/listener/hook/A', function () {
+    file_put_contents('/Users/michaelkelley/Sites/listener.log', PHP_EOL . 'hit-A' . time(), FILE_APPEND);
+});
+Route::post('test/listener/hook/B', function () {
+    file_put_contents('/Users/michaelkelley/Sites/listener.log', PHP_EOL . 'hit-B-' . time(), FILE_APPEND);
+});

@@ -11,6 +11,7 @@
     <li>Add data transformation</li>
     <li>Add logging of all actions</li>
     <li>Add a way for events to be manually re-triggered and listeners to be manually re-notified (helpful when max retries has been exausted)</li>
+    <li>Limit Services creation by admins</li>
 </ul>
 
 <h3>Services</h3>
