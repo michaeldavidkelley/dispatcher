@@ -11,6 +11,12 @@ class Listener extends Model
 
     protected $table = 'listeners';
 
+    protected $fillable = ['name', 'description'];
+
+    protected $attributes = [
+        'enabled' => true,
+    ];
+
     public function event()
     {
         return $this->belongsTo(Event::class);

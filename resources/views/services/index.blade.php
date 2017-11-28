@@ -16,12 +16,6 @@
         </a>
         @endforeach
     </div>
-
-    @slot('footer')
-        <a href="{{ route('services.create') }}" class="btn btn-sm btn-default">
-            <i class="fa fa-plus"></i> Create Service
-        </a>
-    @endslot
 @endcomponent
 
 @endsection

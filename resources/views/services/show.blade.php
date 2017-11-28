@@ -2,9 +2,14 @@
 
 
 @section('sidenav')
-<a href="{{ route('services.index') }}" class="btn btn-sm btn-default">
-    Back to Services
-</a>
+<div class="btn-group-vertical">
+    <a href="{{ route('services.index') }}" class="btn btn-sm btn-default">
+        Back to Services
+    </a>
+    <a href="{{ route('events.create', $service->id) }}" class="btn btn-sm btn-default">
+        <i class="fa fa-plus"></i> Add Event
+    </a>
+</div>
 @endsection
 
 @section('content')
@@ -12,12 +17,7 @@
     @slot('title')
         Service #{{ $service->id }} - {{ $service->name }}
     @endslot
-
-    @slot('footer')
-    <a href="{{ route('events.create', $service->id) }}" class="btn btn-sm btn-default">
-        <i class="fa fa-plus"></i> Add Event
-    </a>
-    @endslot
+    <h4>Events</h4>
     <div class="list-group">
         @foreach($service->events as $event)
         <a href="{{ route('events.show', [$service->id, $event->id]) }}" class="list-group-item">

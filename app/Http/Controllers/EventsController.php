@@ -9,13 +9,6 @@ use Illuminate\Validation\Rule;
 
 class EventsController extends Controller
 {
-    public function index(Service $service)
-    {
-        $events = $service->events;
-
-        return view('events.index', compact('events'));
-    }
-
     public function create(Service $service)
     {
         return view('events.create', compact('service'));
@@ -38,16 +31,9 @@ class EventsController extends Controller
         return redirect()->route('events.show', [$service->id, $event->id]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show(Service $service, Event $event)
     {
-        //
+        return view('events.show', compact('service', 'event'));
     }
 
     /**

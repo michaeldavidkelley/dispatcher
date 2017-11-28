@@ -20,13 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('services', ServicesController::class);
-// Route::resource('events', EventsController::class, ['except' => ['store', 'index', 'create']]);
-// Route::resource('listeners', ListenersController::class, ['except' => ['store', 'index', 'create']]);
 
 Route::group(['prefix' => 'services/{service}'], function () {
-    Route::resource('events', EventsController::class);
+    Route::resource('events', EventsController::class, ['except' => ['index']]);
 
     Route::group(['prefix' => 'events/{event}'], function () {
-        Route::resource('listeners', ListenersController::class);
+        Route::resource('listeners', ListenersController::class, ['except' => ['index']]);
     });
+});
+
+Route::group(['prefix' => 'hooks/events/{event}'], function () {
+    Route::post('trigger', function () {
+        echo 'here';
+    })->name('events.trigger');
 });
