@@ -17,6 +17,7 @@
     <li>Error notifications via email</li>
     <li>Redis would be awesome, but we could probably use AWS SQS for free (10M+100GB = 11.15/month, First 1M = Free)</li>
     <li>Might want to add a Failed Listener to all Events so the system that triggered the event can get notifications of failures</li>
+    <li>Change delays to minutes instead of seconds</li>
 </ul>
 
 <h3>Services</h3>
