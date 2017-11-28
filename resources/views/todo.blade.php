@@ -28,10 +28,10 @@
     <li>Add Scope (public, private, hidden)</li>
     <li>Create a auth code so the endpoint is not open to everyone for privately scoped events</li>
     <li><s>Requires confirmation</s></li> 
-    <li>Add field to force events settings to override listener settings, otherwise listener settings will override event's</li>
+    <li><s>Add field to force events settings to override listener settings, otherwise listener settings will override event's</s></li>
     <li>Rate Limiting</li>
     <li>Add log of actions (like Stripe.com)</li>
-    <li>Add event to the Event.php class that creates a confirmation code when an Event is created</li>
+    <li><s>Add event to the Event.php class that creates a confirmation code when an Event is created</s></li>
 </ul>
 
 <h3>Listeners</h3>

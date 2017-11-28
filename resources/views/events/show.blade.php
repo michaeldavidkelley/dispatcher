@@ -26,6 +26,9 @@
             <li>Retry Delay: {{ $event->listeners_retry_delay }}</li>
             <li>Can Override: {{ $event->listeners_can_override ? 'Yes' : 'No' }}</li>
             <li>Require Confirm: {{ $event->listeners_require_confirmation ? 'Yes' : 'No' }}</li>
+            @if($event->listeners_require_confirmation)
+            <li>Confirmation Code: <code>{{ $event->listeners_confirmation_code }}</code></li>
+            @endif
         </ul>
     @endslot
 
