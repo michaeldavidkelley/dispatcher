@@ -2,6 +2,7 @@
 
 Decoupled event dispatching system.
 
+**This is not mean to be used as a public facing website**
 
 ## Built With
 
