@@ -5,7 +5,7 @@ Decoupled event dispatching system.
 
 ## Built With
 
-* [Laravel](http://laravel.com) - The Laravel PHP frameworkFeeds
+* [Laravel](http://laravel.com) - The Laravel PHP framework
 
 ## Versioning
 
