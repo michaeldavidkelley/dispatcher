@@ -2,7 +2,7 @@
 
 Decoupled event dispatching system.
 
-**This is not mean to be used as a public facing website**
+**This is not meant to be used as a public facing website**
 
 ## Built With
 
@@ -10,10 +10,7 @@ Decoupled event dispatching system.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
+We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Michael Kelley**
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.

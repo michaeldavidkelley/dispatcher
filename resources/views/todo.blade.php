@@ -56,13 +56,13 @@
 <p>These are HTTP endpoints where 3rd party Services POST data to "trigger events"</p>
 <ul>
     <li>Should store the entire request (headers, body, status code, ...)</li>
-    <li>Should contain a field or fields to know when the trigger has been devlivered or failed</li>
+    <li>Should contain a field or fields to know when the trigger has been delivered or failed</li>
     <li>Belongs to an Event</li>
     <li>Has many Dispatches</li>
 </ul>
 
 <h3>[Listener] Dispatches</h3>
-<p>A Dispatch occurs when an Event notifys it's Listeners.</p>
+<p>A Dispatch occurs when an Event notifies its Listeners.</p>
 <ul>
     <li>A single dispatch should be a queueable job</li>
     <li>Should pass along the body from the Trigger</li>
